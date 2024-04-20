@@ -27,7 +27,7 @@
                 <Button Margin="5"  Grid.Row="4" Grid.Column="1" x:Name="FileSelector" Click="FileSelector_OnClick" >选择文件</Button>
             </Grid>
             <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" DockPanel.Dock="Top">
-                <Button Margin="0,30,0,5" Grid.Row="0" Grid.Column="1" x:Name="Light" Click="Light_OnClick">提亮</Button>
+                <!-- <Button Margin="0,30,0,5" Grid.Row="0" Grid.Column="1" x:Name="Light" Click="Light_OnClick">提亮</Button> -->
                 <Button Grid.Row="1" Grid.Column="0" Margin="40,5" x:Name="Drawer" Click="Drawer_OnClick">绘制</Button>
                 <Button Grid.Row="1" Grid.Column="1" Margin="40,5" x:Name="Selector" Click="Selector_OnClick">另存为</Button>
             </Grid>
