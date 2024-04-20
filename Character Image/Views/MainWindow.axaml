@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Character_Image.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Character_Image.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Character_Image">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <DockPanel>
+        <DockPanel Width="300" DockPanel.Dock="Right"  Background="Cornsilk">
+            
+            <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="100,*" DockPanel.Dock="Top">
+                <Label Margin="5" Grid.Row="0" Grid.Column="0">字体大小</Label>
+                <TextBox Margin="5"  Grid.Row="0" Grid.Column="1" Height="40" Width="100" Text="{Binding FontSize}"></TextBox>
+                <Label Margin="5"  Grid.Row="1" Grid.Column="0">绘制的字符串</Label>
+                <TextBox Margin="5"  Grid.Row="1" Grid.Column="1" Height="40" Width="100" Text="{Binding DrawText}"></TextBox>
+                <Label Margin="5"  Grid.Row="2" Grid.Column="0">放大倍速</Label>
+                <TextBox Margin="5"  Grid.Row="2" Grid.Column="1" Height="40" Width="100" Text="{Binding Zoom}"></TextBox>
+                <Label Margin="5"  Grid.Row="3" Grid.Column="0" >文件地址</Label>
+                <TextBox Margin="5"  Grid.Row="3" Grid.Column="1" Height="40" Text="{Binding InputImage}"></TextBox>
+                <Button Margin="5"  Grid.Row="4" Grid.Column="1" x:Name="FileSelector" Click="FileSelector_OnClick" >选择文件</Button>
+            </Grid>
+            <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" DockPanel.Dock="Top">
+                <Button Margin="0,30,0,5" Grid.Row="0" Grid.Column="1" x:Name="Light" Click="Light_OnClick">提亮</Button>
+                <Button Grid.Row="1" Grid.Column="0" Margin="40,5" x:Name="Drawer" Click="Drawer_OnClick">绘制</Button>
+                <Button Grid.Row="1" Grid.Column="1" Margin="40,5" x:Name="Selector" Click="Selector_OnClick">另存为</Button>
+            </Grid>
+            
+            <Panel></Panel>
+        </DockPanel>
+        <Grid>
+            <Border Padding="40">
+                <Border BorderThickness="1" BorderBrush="Black">
+                    <Image x:Name="DisplayImage" Source="{Binding DisplayImage}"  ></Image>
+                </Border>
+            </Border>
+        </Grid>
+    </DockPanel>
+
+</Window>
